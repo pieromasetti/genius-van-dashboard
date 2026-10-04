@@ -1,0 +1,29 @@
+# ==============================================================================
+# LIVELLA VAN PRO - CARD LOVELACE
+# Versione: 1.0.0
+# Card custom avanzata per livellamento camper / van con calcolo cunei ruote
+# Mostra: Bersaglio 2D (bullseye), sagoma camper top-down, altezza cunei in cm per ruota
+# ==============================================================================
+
+type: custom:genius-van-livella-card
+title: LIVELLA VAN PRO
+
+# ------------------------------------------------------------------------------
+# SENSORI INCLINAZIONE (ESPHome MPU6050 / BNO055 / WT901 / ecc.)
+# ------------------------------------------------------------------------------
+pitch_entity: sensor.livella_van_van_pitch                  # Inclinazione longitudinale (beccheggio in gradi °)
+roll_entity: sensor.livella_van_van_roll                    # Inclinazione trasversale (rollio in gradi °)
+levelled_entity: binary_sensor.livella_van_van_livellato    # Sensore booleano van a bolla (ON/OFF o entro soglia)
+
+# ------------------------------------------------------------------------------
+# SENSORI ALTEZZA CUNEI RUOTE (calcolati in cm da ESPHome o template sensor HA)
+# ------------------------------------------------------------------------------
+wedge_fl_entity: sensor.livella_van_altezza_cuneo_fl        # Cuneo Anteriore SX (Front Left) in cm
+wedge_fr_entity: sensor.livella_van_altezza_cuneo_fr        # Cuneo Anteriore DX (Front Right) in cm
+wedge_rl_entity: sensor.livella_van_altezza_cuneo_rl        # Cuneo Posteriore SX (Rear Left) in cm
+wedge_rr_entity: sensor.livella_van_altezza_cuneo_rr        # Cuneo Posteriore DX (Rear Right) in cm
+
+# ------------------------------------------------------------------------------
+# COMANDO CALIBRAZIONE ZERO (Opzionale)
+# ------------------------------------------------------------------------------
+calibrate_button: button.livella_van_calibra_piano_bolla    # Tasto rapido per azzerare e tarare la bolla

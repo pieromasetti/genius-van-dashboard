@@ -1,0 +1,66 @@
+# ==============================================================================
+# ESEMPIO VISTA DASHBOARD LOVELACE COMPLETA
+# Da inserire nel cruscotto di Home Assistant (Raw Configuration Editor o file YAML)
+# ==============================================================================
+
+views:
+  # ----------------------------------------------------------------------------
+  # VISTA 1: COCKPIT PRINCIPALE (Tablet orizzontale o smartphone)
+  # ----------------------------------------------------------------------------
+  - title: Cockpit
+    path: cockpit
+    icon: mdi:view-dashboard-variant
+    panel: true
+    cards:
+      - type: custom:devicedata-cockpit-card
+        title: GENIUS VAN COCKPIT
+        cycle_interval: 12
+        soc_entity: sensor.victron_battery_soc
+        voltage_entity: sensor.victron_battery_voltage
+        current_entity: sensor.victron_battery_current
+        power_entity: sensor.victron_battery_power
+        starter_voltage_entity: sensor.victron_starter_battery_voltage
+        time_to_go_entity: sensor.victron_battery_time_to_go
+        pv_power_entity: sensor.victron_solar_power
+        mppt_state_entity: sensor.victron_mppt_state
+        orion_current_limit_entity: number.victron_orion_input_current_limit
+        multiplus_power_entity: sensor.victron_multiplus_ac_power
+        multiplus_mode_entity: select.victron_multiplus_mode
+        multiplus_current_limit_entity: number.victron_multiplus_input_current_limit
+        heading_entity: sensor.van_bussola_heading
+        altitude_entity: sensor.van_gps_altitude
+        gpl_percent_entity: sensor.livello_gpl_percentuale
+        gpl_kg_entity: sensor.livello_gpl_kg
+        gpl_tare_entity: number.calibrazione_tara_bombola
+        gpl_capacity_entity: number.calibrazione_capacita_gpl
+        temp_dinette_entity: sensor.temperatura_dinette
+        temp_letto_entity: sensor.temperatura_letto
+        temp_bagno_entity: sensor.temperatura_bagno
+        temp_esterno_entity: sensor.temperatura_esterna
+        adblue_entity: sensor.sprinter_adblue_level
+        fuel_entity: sensor.sprinter_fuel_level
+        range_entity: sensor.sprinter_range
+        tire_fl_entity: sensor.sprinter_tire_pressure_fl
+        tire_fr_entity: sensor.sprinter_tire_pressure_fr
+        tire_rl_entity: sensor.sprinter_tire_pressure_rl
+        tire_rr_entity: sensor.sprinter_tire_pressure_rr
+        lock_entity: lock.sprinter_door_lock
+
+  # ----------------------------------------------------------------------------
+  # VISTA 2: LIVELLA DIGITALE DEDICATA (Ottimizzata per panel full-screen)
+  # ----------------------------------------------------------------------------
+  - title: Livella
+    path: livella
+    icon: mdi:spirit-level
+    panel: true
+    cards:
+      - type: custom:genius-van-livella-card
+        title: LIVELLA VAN PRO
+        pitch_entity: sensor.livella_van_van_pitch
+        roll_entity: sensor.livella_van_van_roll
+        levelled_entity: binary_sensor.livella_van_van_livellato
+        wedge_fl_entity: sensor.livella_van_altezza_cuneo_fl
+        wedge_fr_entity: sensor.livella_van_altezza_cuneo_fr
+        wedge_rl_entity: sensor.livella_van_altezza_cuneo_rl
+        wedge_rr_entity: sensor.livella_van_altezza_cuneo_rr
+        calibrate_button: button.livella_van_calibra_piano_bolla

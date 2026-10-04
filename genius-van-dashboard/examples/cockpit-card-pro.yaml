@@ -1,0 +1,68 @@
+# ==============================================================================
+# GENIUS VAN COCKPIT PRO - CARD LOVELACE
+# Versione: 2.7.0
+# Card custom avanzata per Camper / Vanlife / Sistemi Off-Grid Victron
+# Supporta: Touch swipe, autorotazione temporizzata, indicatori circolari, comandi rapidi
+# ==============================================================================
+
+type: custom:devicedata-cockpit-card
+title: GENIUS VAN COCKPIT
+cycle_interval: 12      # Tempo in secondi per il cambio pagina automatico (0 per disattivare)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 1: BATTERIA SERVIZI & AVVIAMENTO (Victron SmartShunt / BMV / Lynx Shunt)
+# ------------------------------------------------------------------------------
+soc_entity: sensor.victron_battery_soc                      # Stato di carica % (0-100)
+voltage_entity: sensor.victron_battery_voltage              # Tensione batteria servizi (V)
+current_entity: sensor.victron_battery_current              # Corrente netta istantanea (A)
+power_entity: sensor.victron_battery_power                  # Potenza netta (W)
+starter_voltage_entity: sensor.victron_starter_battery_voltage  # Tensione batteria motore/avviamento (V)
+time_to_go_entity: sensor.victron_battery_time_to_go        # Autonomia residua stimata (es. '1d 4h' o secondi)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 2: SOLARE & BOOSTER (Victron SmartSolar MPPT + Orion-Tr / Orion XS)
+# ------------------------------------------------------------------------------
+pv_power_entity: sensor.victron_solar_power                 # Potenza istantanea pannelli solari (W)
+mppt_state_entity: sensor.victron_mppt_state                # Stato regolatore (Off, Bulk, Absorption, Float)
+orion_current_limit_entity: number.victron_orion_input_current_limit # Limite corrente assorbita alternatore (A)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 3: 230V & INVERTER (Victron MultiPlus / MultiPlus II / Quattro)
+# ------------------------------------------------------------------------------
+multiplus_power_entity: sensor.victron_multiplus_ac_power   # Potenza AC 230V assorbita / erogata (W)
+multiplus_mode_entity: select.victron_multiplus_mode        # Modalità inverter (on, off, charger_only)
+multiplus_current_limit_entity: number.victron_multiplus_input_current_limit # Limite corrente colonnina camping (A)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 4: BUSSOLA & ALTIMETRO (GPS / ESPHome / Sensore Bussola)
+# ------------------------------------------------------------------------------
+heading_entity: sensor.van_bussola_heading                  # Gradi prua/rotta 0-360° (Heading-Up)
+altitude_entity: sensor.van_gps_altitude                    # Altitudine s.l.m. (m)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 5: GPL & TEMPERATURE DINETTE / LETTO / BAGNO / ESTERNO
+# ------------------------------------------------------------------------------
+gpl_percent_entity: sensor.livello_gpl_percentuale          # Livello bombola gas in %
+gpl_kg_entity: sensor.livello_gpl_kg                        # Peso gas residuo in kg
+gpl_tare_entity: number.calibrazione_tara_bombola           # Tara a vuoto bombola (kg) per calibrazione rapida
+gpl_capacity_entity: number.calibrazione_capacita_gpl       # Capacità nominale gas pieno (kg)
+
+# 4 Zone termiche con badge colorati e soglie allarmi dinamiche:
+temp_dinette_entity: sensor.temperatura_dinette             # Temperatura zona giorno / living (°C)
+temp_letto_entity: sensor.temperatura_letto                 # Temperatura zona notte / letto posteriore (°C)
+temp_bagno_entity: sensor.temperatura_bagno                 # Temperatura bagno (°C)
+temp_esterno_entity: sensor.temperatura_esterna             # Temperatura esterna (°C)
+
+# ------------------------------------------------------------------------------
+# SCHEDA 6: DATI VEICOLO (Mercedes Sprinter / Ducato / Ford Transit)
+# ------------------------------------------------------------------------------
+adblue_entity: sensor.sprinter_adblue_level                 # Livello liquido AdBlue in % (valore hero)
+fuel_entity: sensor.sprinter_fuel_level                     # Livello serbatoio carburante (%)
+range_entity: sensor.sprinter_range                         # Autonomia residua stimata (km)
+lock_entity: lock.sprinter_door_lock                        # Chiusura centralizzata portiere veicolo (touch toggle)
+
+# Controllo pressioni pneumatici individuali TPMS (in bar):
+tire_fl_entity: sensor.sprinter_tire_pressure_fl            # Anteriore Sinistro
+tire_fr_entity: sensor.sprinter_tire_pressure_fr            # Anteriore Destro
+tire_rl_entity: sensor.sprinter_tire_pressure_rl            # Posteriore Sinistro
+tire_rr_entity: sensor.sprinter_tire_pressure_rr            # Posteriore Destro
