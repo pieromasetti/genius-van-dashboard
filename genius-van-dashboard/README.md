@@ -20,9 +20,12 @@ Card multifunzione a carosello circolare a 7 schermate con barra di navigazione 
 * **🚚 Scheda 6 - Dati Veicolo (Mercedes Sprinter / Camper):** Indicatore AdBlue ad alta visibilità, livello carburante compatto con autonomia residua (km), stato e sblocco/blocco portiere touch e **monitoraggio pressione pneumatici TPMS dedicato ruota per ruota** (Ant SX/DX e Post SX/DX in bar).
 * **⛽ Scheda 7 - Diesel Pro & Radar in Viaggio (Novità v2.9):** 
   - **Hero Gauge 1° Miglior Prezzo:** Mostra in grande il prezzo più basso trovato nei paraggi in EUR/L con nome distributore, distanza dal van, indirizzo e tocco diretto per aprire Google Maps con navigazione turn-by-turn.
-  - **Interruttore Radar in Viaggio:** Badge touch ON/OFF per governare gli avvisi automatici periodici (ogni 30 min) lungo il tragitto senza distrazioni alla guida.
+  - **Interruttore Radar in Viaggio:** Badge touch ON/OFF per governare gli avvisi automatici periodici lungo il tragitto senza distrazioni alla guida.
   - **2° e 3° Alternativa Economica:** Tessere comparative con prezzi, distanze e link rapido a Maps.
-  - **Tessera Raggio & Cerca con Pop-up Modale:** Toccando la tessera si apre il pannello modale con slider del raggio (5-100 km), **tasti rapidi preset (`5 km`, `10 km`, `15 km`, `20 km`, `30 km`, `50 km`, `100 km`)** e pulsante `[🔍 CERCA ORA SUL POSTO]` con animazione visiva istantanea di caricamento.
+  - **Tessera Raggio & Cerca con Pop-up Modale Completo:** Toccando la tessera si apre il pannello modale con:
+    * **Frequenza di Rilevazione Personalizzabile:** Slider continuo (5-60 min), input libero e **tasti rapidi preset (`5'`, `10'`, `15'`, `20'`, `30'`)** per scegliere l'intervallo degli avvisi.
+    * **Raggio di Ricerca (km):** Slider continuo (5-100 km), input libero e **tasti rapidi preset (`5 km`, `10 km`, `15 km`, `20 km`, `30 km`, `50 km`, `100 km`)**.
+    * **Pulsante `[🔍 CERCA ORA SUL POSTO]`:** con animazione visiva istantanea di caricamento.
   - **Copertura Multi-Paese Europea:** Supporto nativo per Italia (MIMIT), Germania (MTS-K / Tankerkönig), Austria (E-Control), Svizzera (Comparis / TCS), Slovenia (Goriva.si), Francia, Spagna, Portogallo, Scandinavia (Circle K / OKQ8 / Uno-X / Neste / ANWB) e Regno Unito.
 
 ### 2. 🎯 Livella Van Pro (`genius-van-livella-card.js` v1.0.0)
@@ -105,12 +108,13 @@ Tutte le entità sono completamente configurabili nel file YAML. Se non disponi 
 | `diesel_sensor` | Sensore miglior prezzo diesel | Script Python `van_diesel_finder.py` / `ha-fuelprices` |
 | `radar_switch_entity` | Switch Radar in Viaggio ON/OFF | `input_boolean.radar_diesel_attivo` |
 | `diesel_radius_entity` | Raggio di ricerca (km) | `input_number.raggio_ricerca_diesel` |
+| `diesel_freq_entity` | Frequenza temporale radar (min) | `input_number.frequenza_radar_diesel` |
 
 ---
 
 ## 💡 Doppia Modalità di Ricerca Carburante Diesel
 1. **Ricerca Puntuale (Spot):** Seleziona il raggio con i tasti rapidi (`5, 10, 15, 20, 30, 50, 100 km`) e premi **"Cerca Ora"** per interrogare istantaneamente le pompe attorno alla posizione attuale del van.
-2. **Radar in Viaggio (Automatico):** Attiva **"Radar in Viaggio" (ON)**: durante la marcia, ogni 30 minuti scansiona automaticamente l'area attorno alle coordinate GPS live del mezzo (entro il raggio impostato) e invia una notifica push interattiva su smartphone per avviare il navigatore Google Maps verso la pompa più conveniente.
+2. **Radar in Viaggio (Automatico):** Attiva **"Radar in Viaggio" (ON)**: durante la marcia, esegue scansioni automatiche alla frequenza scelta (`5', 10', 15', 20', 30'` min) attorno alle coordinate GPS live del mezzo (entro il raggio impostato) e invia una notifica push interattiva su smartphone per avviare il navigatore Google Maps verso la pompa più conveniente.
 
 ---
 
