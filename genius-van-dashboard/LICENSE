@@ -1,21 +1,68 @@
-MIT License
+GENIUS VAN DASHBOARD - DUAL LICENSE AGREEMENT
+Copyright (c) 2026 Piero. All rights reserved.
 
-Copyright (c) 2026 Piero
+Questo software ("Genius Van Cockpit & Livella Pro", inclusi codice sorgente,
+grafiche, file di configurazione e documentazione) è rilasciato con modello di
+DOPPIA LICENZA (DUAL LICENSING):
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+================================================================================
+1. LICENZA GRATUITA PER USO PERSONALE E NON COMMERCIALE (FREE PERSONAL USE)
+================================================================================
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Viene concessa autorizzazione gratuita a qualsiasi privato cittadino, camperista
+o appassionato di DIY per utilizzare, studiare, configurare e personalizzare
+questo software ESCLUSIVAMENTE per uso personale, privato e non a scopo di lucro
+sul proprio veicolo ricreazionale (camper, van, motorhome, barca), alle seguenti
+condizioni:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+a. La presente nota di copyright e i termini di licenza devono essere sempre
+   inclusi in tutte le copie o porzioni sostanziali del Software.
+b. È SEVERAMENTE VIETATO utilizzare, vendere, sublicenziare, noleggiare, preinstallare
+   o distribuire questo Software (o qualsiasi opera derivata) nell'ambito di
+   qualsiasi attività commerciale, professionale o fornitura a pagamento di beni
+   o servizi.
+c. Eventuali modifiche o miglioramenti condivisi pubblicamente devono mantenere
+   questi medesimi termini di licenza non commerciale.
+
+IL SOFTWARE È FORNITO "COSÌ COM'È", SENZA GARANZIE DI ALCUN TIPO, ESPLICITE O
+IMPLICITE, INCLUSE LE GARANZIE DI COMMERCIABILITÀ O IDONEITÀ A UNO SCOPO
+PARTICOLARE. IN NESSUN CASO L'AUTORE O I TITOLARI DEL COPYRIGHT SARANNO
+RESPONSABILI PER EVENTUALI DANNI, SINISTRI, MULTE O PROBLEMI DERIVANTI DALL'USO
+DEL SOFTWARE.
+
+================================================================================
+2. LICENZA COMMERCIALE A PAGAMENTO (COMMERCIAL LICENSE REQUIRED)
+================================================================================
+
+QUALSIASI UTILIZZO, INTEGRAZIONE, PREINSTALLAZIONE O DISTRIBUZIONE A SCOPO COMMERCIALE,
+PROFESSIONALE O A FINI DI LUCRO RICHIEDE OBBLIGATORIAMENTE L'ACQUISTO PREVENTIVO
+DI UNA LICENZA COMMERCIALE A PAGAMENTO RILASCIATA DALL'AUTORE.
+
+Questo divieto comprende a titolo esemplificativo ma non esaustivo:
+- Allestitori professionisti di camper e van, carrozzerie e officine che
+  installano o preconfigurano questa dashboard su veicoli destinati alla vendita
+  o realizzati su commessa per clienti terzi.
+- Rivenditori, concessionari o installatori che offrono pacchetti "Smart Camper",
+  domotica camper o configurazioni Home Assistant come servizio retribuito.
+- Vendita o bundling di questo software abbinato a hardware commerciale, tablet,
+  microcontroller (es. Arduino, Raspberry Pi) o kit preconfezionati.
+- Qualsiasi forma di monetizzazione diretta o indiretta o fork proprietario.
+
+Per richiedere informazioni, preventivi e l'acquisto di una Licenza Commerciale:
+- Titolare del Copyright: Piero
+- Canale di Contatto: Tramite GitHub Issues / Discussions nel repository ufficiale
+  (https://github.com/pieros/genius-van-dashboard) oppure contatto diretto con l'autore.
+
+================================================================================
+ENGLISH SUMMARY / TERMS
+================================================================================
+
+This project is licensed under a Dual License model:
+- NON-COMMERCIAL / PERSONAL DIY USE: Free of charge for private individuals
+  on their personal camper vans or vehicles.
+- COMMERCIAL / PROFESSIONAL USE: STRICTLY PROHIBITED without purchasing a paid
+  commercial license from the author (Piero). Professional van upfitters, workshops,
+  and hardware vendors MUST NOT install, bundle, or distribute this dashboard in
+  commercial projects or vehicles built for clients without an authorized
+  commercial license.
+================================================================================
