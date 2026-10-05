@@ -1,23 +1,29 @@
 # 🚐 Genius Van Cockpit & Livella Pro for Home Assistant
 
-Una suite avanzata di **Card Lovelace personalizzate** sviluppate appositamente per **Camper, Vanlife e veicoli ricreazionali** dotati di ecosistemi **Victron Energy, sensori ESPHome e telemetria veicolo**.
+Una suite avanzata di **Card Lovelace personalizzate** sviluppate appositamente per **Camper, Vanlife e veicoli ricreazionali** dotati di ecosistemi **Victron Energy, sensori ESPHome, telemetria veicolo e radar carburante europeo**.
 
-Ottimizzata specificamente sia per **tablet a parete (Landscape / Always-On)** con autorotazione automatica delle schermate, sia per **smartphone (iOS / Android)** con swipe orizzontale nativo touch.
+Ottimizzata specificamente sia per **tablet a parete / cruscotto (Landscape / Always-On)** con autorotazione automatica delle schermate, sia per **smartphone (iOS / Android)** con swipe orizzontale nativo touch e pop-up modali cyber-style.
 
 ---
 
 ## ✨ Cosa include il progetto
 
-Il repository include due card JavaScript personalizzate, indipendenti e leggere:
+Il repository include due card JavaScript personalizzate, indipendenti, ad alte prestazioni e a zero dipendenze esterne:
 
-### 1. 🎛️ Genius Van Cockpit Pro (`devicedata-cockpit-card-v22.js` v2.7.0)
-Card multifunzione a carosello circolare con selettore rapido in basso:
+### 1. 🎛️ Genius Van Cockpit Pro (`devicedata-cockpit-card-v22.js` v2.9.0)
+Card multifunzione a carosello circolare a 7 schermate con barra di navigazione a scorrimento orizzontale e pop-up interattivi:
 * **🔋 Scheda 1 - Batteria Servizi & Avviamento:** Indicatore circolare con percentuale SOC, tensione (V), corrente netta (A), potenza (W), autonomia residua (*Time to go*) e tensione batteria motore.
-* **☀️ Scheda 2 - Solare & Alternatore (MPPT + Orion XS):** Monitoraggio produzione fotovoltaica istantanea con stato MPPT e **regolazione diretta del limite di corrente del booster Orion XS** (slider touch rapido + casella per digitare il valore numerico esatto).
-* **⚡ Scheda 3 - Rete 230V & MultiPlus:** Potenza assorbita/erogata in 230V AC, selettore touch delle modalità Inverter (`ON`, `OFF`, `Charger Only`) e **regolazione istantanea del limite colonnina camping** (slider + input numerico).
-* **🧭 Scheda 4 - Bussola & Altitudine:** Bussola dinamica *Heading-Up* (rotazione fluida a 360° con indicazione cardinale N, NE, E...) e altitudine GPS s.l.m.
+* **☀️ Scheda 2 - Solare & Alternatore (MPPT + Orion XS):** Monitoraggio produzione fotovoltaica istantanea con stato MPPT e **finestra modale touch di regolazione del limite di corrente del booster Orion XS** (slider continuo + casella numerica + preset rapidi 10A, 20A, 30A, 40A, 50A + interruttore alternatore ON/OFF).
+* **⚡ Scheda 3 - Rete 230V & MultiPlus:** Potenza assorbita/erogata in 230V AC, selettore touch delle modalità Inverter (`ON`, `OFF`, `Charger Only`) e **regolazione istantanea del limite colonnina camping** (slider + input numerico + preset rapidi 3A, 4A, 6A, 10A, 16A).
+* **🧭 Scheda 4 - Bussola & Altitudine:** Bussola dinamica *Heading-Up* (rotazione fluida a 360° con sagoma van centrale, indicazione cardinale N, NE, E...) e altitudine GPS s.l.m.
 * **🔥 Scheda 5 - GPL & Temperature:** Monitoraggio bombola gas con percentuale e kg residui, **finestra modale di calibrazione rapida tara/capacità** integrata direttamente nella tessera, più 4 tessere termiche simmetriche (Dinette, Letto, Bagno, Esterno) con allarmi colore automatici in base a soglie termiche.
 * **🚚 Scheda 6 - Dati Veicolo (Mercedes Sprinter / Camper):** Indicatore AdBlue ad alta visibilità, livello carburante compatto con autonomia residua (km), stato e sblocco/blocco portiere touch e **monitoraggio pressione pneumatici TPMS dedicato ruota per ruota** (Ant SX/DX e Post SX/DX in bar).
+* **⛽ Scheda 7 - Diesel Pro & Radar in Viaggio (Novità v2.9):** 
+  - **Hero Gauge 1° Miglior Prezzo:** Mostra in grande il prezzo più basso trovato nei paraggi in EUR/L con nome distributore, distanza dal van, indirizzo e tocco diretto per aprire Google Maps con navigazione turn-by-turn.
+  - **Interruttore Radar in Viaggio:** Badge touch ON/OFF per governare gli avvisi automatici periodici (ogni 30 min) lungo il tragitto senza distrazioni alla guida.
+  - **2° e 3° Alternativa Economica:** Tessere comparative con prezzi, distanze e link rapido a Maps.
+  - **Tessera Raggio & Cerca con Pop-up Modale:** Toccando la tessera si apre il pannello modale con slider del raggio (5-100 km), **tasti rapidi preset (`5 km`, `10 km`, `15 km`, `20 km`, `30 km`, `50 km`, `100 km`)** e pulsante `[🔍 CERCA ORA SUL POSTO]` con animazione visiva istantanea di caricamento.
+  - **Copertura Multi-Paese Europea:** Supporto nativo per Italia (MIMIT), Germania (MTS-K / Tankerkönig), Austria (E-Control), Svizzera (Comparis / TCS), Slovenia (Goriva.si), Francia, Spagna, Portogallo, Scandinavia (Circle K / OKQ8 / Uno-X / Neste / ANWB) e Regno Unito.
 
 ### 2. 🎯 Livella Van Pro (`genius-van-livella-card.js` v1.0.0)
 Card visuale per il livellamento del furgone/camper in sosta:
@@ -33,14 +39,15 @@ Card visuale per il livellamento del furgone/camper in sosta:
 
 ```text
 ├── www/
-│   ├── devicedata-cockpit-card-v22.js   # Card Cockpit Pro v2.7.0
+│   ├── devicedata-cockpit-card-v22.js   # Card Cockpit Pro v2.9.0 (7 Schede)
 │   └── genius-van-livella-card.js       # Card Livella Pro v1.0.0
 ├── examples/
-│   ├── cockpit-card-pro.yaml            # Configurazione YAML Cockpit
+│   ├── cockpit-card-pro.yaml            # Configurazione YAML Cockpit con Diesel Pro
 │   ├── livella-card-pro.yaml            # Configurazione YAML Livella
 │   └── dashboard-lovelace-view.yaml     # Esempio vista completa Lovelace
 ├── LICENSE                              # Licenza MIT (Open Source)
-└── README.md                            # Guida all'installazione
+├── MANUALE_INTEGRAZIONE_HA_VAN.md       # Dossier Tecnico Completo Impianto Van
+└── README.md                            # Documentazione del progetto
 ```
 
 ---
@@ -50,19 +57,19 @@ Card visuale per il livellamento del furgone/camper in sosta:
 ### Passo 1: Copia dei file JavaScript
 1. Accedi alla cartella di configurazione del tuo Home Assistant (tramite Samba, SSH, Studio Code Server o File Editor).
 2. Entra nella cartella `config/www/` (se non esiste la cartella `www`, creala).
-3. Copia i due file presenti nella cartella `www/` di questo repository:
+3. Copia i file presenti nella cartella `www/` di questo repository:
    - `devicedata-cockpit-card-v22.js`
    - `genius-van-livella-card.js`
 
 ### Passo 2: Registrazione delle Risorse in Home Assistant
 1. Vai su Home Assistant: **Impostazioni** ➔ **Dashboard** ➔ Menu in alto a destra (3 puntini) ➔ **Risorse**.
-2. Clicca su **Aggiungi Risorsa** per la prima card:
-   - **URL:** `/local/devicedata-cockpit-card-v22.js?v=2.7`
+2. Registra o aggiorna la risorsa per la Cockpit Card:
+   - **URL:** `/local/devicedata-cockpit-card-v22.js?v=3.1`
    - **Tipo di risorsa:** `Modulo JavaScript`
-3. Clicca di nuovo su **Aggiungi Risorsa** per la seconda card:
+3. Registra la risorsa per la Livella:
    - **URL:** `/local/genius-van-livella-card.js?v=1.0`
    - **Tipo di risorsa:** `Modulo JavaScript`
-4. Salva e ricarica la pagina del browser (o svuota la cache della Home Assistant Companion App).
+4. Salva e ricarica la pagina del browser (o svuota la cache della Home Assistant Companion App con uno swipe verso il basso).
 
 ### Passo 3: Inserimento delle Card nella Dashboard
 1. Vai sulla tua Dashboard Lovelace, clicca su **Modifica plancia**.
@@ -70,13 +77,13 @@ Card visuale per il livellamento del furgone/camper in sosta:
 3. Incolla il codice YAML desiderato prendendolo dai file nella cartella `examples/`:
    - Per il Cockpit: `examples/cockpit-card-pro.yaml`
    - Per la Livella: `examples/livella-card-pro.yaml`
-4. Sostituisci i nomi delle entità con quelli del tuo impianto (es. i tuoi sensori Victron o ESPHome).
+4. Sostituisci i nomi delle entità con quelli del tuo impianto.
 
 ---
 
 ## ⚙️ Mappatura e Personalizzazione delle Entità
 
-Tutte le entità sono completamente configurabili nel file YAML. Se non disponi di alcuni sensori (ad esempio il sensore AdBlue o la bombola GPL), puoi ometterli o impostarli su sensori fittizi; la card si adatterà graficamente.
+Tutte le entità sono completamente configurabili nel file YAML. Se non disponi di alcuni sensori, puoi ometterli; la card si adatterà graficamente nascondendo o visualizzando segnaposto discreti.
 
 ### Entità principali Cockpit:
 | Parametro | Descrizione | Integrazione tipica |
@@ -86,27 +93,24 @@ Tutte le entità sono completamente configurabili nel file YAML. Se non disponi 
 | `current_entity` | Corrente netta (A) | Victron SmartShunt / BMV |
 | `pv_power_entity` | Potenza solare fotovoltaica (W) | Victron SmartSolar MPPT |
 | `orion_current_limit_entity` | Regolazione corrente booster (A) | Victron Orion XS DC-DC |
+| `orion_switch_entity` | Interruttore booster alternatore | Victron Orion XS DC-DC |
 | `multiplus_power_entity` | Potenza 230V AC (W) | Victron MultiPlus |
+| `multiplus_mode_entity` | Modalità operativa inverter/charger | Victron MultiPlus |
 | `multiplus_current_limit_entity` | Limite colonnina camping (A) | Victron MultiPlus |
 | `heading_entity` | Prua bussola (0-360°) | ESPHome / GPS NMEA |
 | `altitude_entity` | Altitudine GPS (m) | ESPHome / Sensore GPS |
 | `gpl_percent_entity` | Livello bombola gas (%) | Sensore ultrasuoni Mopeka / Cella di carico |
 | `adblue_entity` | Livello AdBlue veicolo (%) | Mercedes Me / Telemetria OBD |
 | `tire_fl_entity` .. `rr` | Pressione 4 gomme (bar) | Sensori TPMS BLE / Telemetria van |
-
-### Entità principali Livella:
-| Parametro | Descrizione | Note |
-|---|---|---|
-| `pitch_entity` | Inclinazione asse longitudinale (°) | Sensore IMU (es. MPU6050 su ESPHome) |
-| `roll_entity` | Inclinazione asse trasversale (°) | Sensore IMU (es. MPU6050 su ESPHome) |
-| `wedge_fl/fr/rl/rr_entity` | Cunei ruote (cm) | Calcolo automatico in base al passo ruote |
-| `calibrate_button` | Tasto calibrazione zero | Invia comando di offset al sensore |
+| `diesel_sensor` | Sensore miglior prezzo diesel | Script Python `van_diesel_finder.py` / `ha-fuelprices` |
+| `radar_switch_entity` | Switch Radar in Viaggio ON/OFF | `input_boolean.radar_diesel_attivo` |
+| `diesel_radius_entity` | Raggio di ricerca (km) | `input_number.raggio_ricerca_diesel` |
 
 ---
 
-## 💡 Suggerimento per l'uso su Tablet e Smartphone
-- **Tablet da incasso / cruscotto:** Imposta la vista Lovelace in modalità **Pannello (1 scheda)** (`panel: true`) per una resa a pieno schermo identica a un computer di bordo automobilistico OEM.
-- **Autorotazione:** Il parametro `cycle_interval: 12` fa scorrere le schermate ogni 12 secondi. Se tocchi lo schermo per interagire (es. regolare l'Orion o il MultiPlus), la rotazione si mette in pausa per non disturbare l'operazione.
+## 💡 Doppia Modalità di Ricerca Carburante Diesel
+1. **Ricerca Puntuale (Spot):** Seleziona il raggio con i tasti rapidi (`5, 10, 15, 20, 30, 50, 100 km`) e premi **"Cerca Ora"** per interrogare istantaneamente le pompe attorno alla posizione attuale del van.
+2. **Radar in Viaggio (Automatico):** Attiva **"Radar in Viaggio" (ON)**: durante la marcia, ogni 30 minuti scansiona automaticamente l'area attorno alle coordinate GPS live del mezzo (entro il raggio impostato) e invia una notifica push interattiva su smartphone per avviare il navigatore Google Maps verso la pompa più conveniente.
 
 ---
 
